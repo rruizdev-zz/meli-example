@@ -24,6 +24,7 @@ app.use('/stylesheets', sass({
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', searchRouter);
+app.use('/images', express.static(path.join(__dirname, 'images')));
 //app.use('/items', itemRouter);
 
 app.set('view engine', 'pug');
