@@ -1,6 +1,6 @@
 const request = require('request');
 
-exports.getJsonFromUrl = (myUrl) => {
+exports.getJsonFromUrl = myUrl => {
     const myOptions = { url: myUrl, headers: { 'User-Agent': 'request' }};
 
     return new Promise((resolve, reject) => {

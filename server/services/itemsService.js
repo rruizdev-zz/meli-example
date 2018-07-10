@@ -2,10 +2,10 @@ const baseService = require('./baseService');
 const config = require('../config');
 const util = require('util');
 
-exports.getItemById = (query) => {
+exports.getItemById = query => {
     return baseService.getJsonFromUrl(util.format(config.endpoints.showItem, query));
 }
 
-exports.getDescriptionById = (query) => {
+exports.getDescriptionById = query => {
     return baseService.getJsonFromUrl(util.format(config.endpoints.showItem, query + config.paths.showDescription));
 }
