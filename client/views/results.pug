@@ -1,0 +1,33 @@
+extends layout.pug
+block content
+    div(ng-app='meli-example',ng-controller='resultsController')
+        input(id='querySearch',type="hidden",value!=query)
+        .container
+            ol.breadcrumb(ng-hide="categories && categories.length")
+                li.breadcrumb-item(ng-repeat="ca in [].constructor(3) track by $index")
+
+            ol.breadcrumb(ng-show="categories && categories.length")
+                li.breadcrumb-item(ng-repeat="category in categories track by $index") {{category}}
+            .results(ng-hide="results && results.length")
+                .result(ng-repeat="no in [].constructor(4) track by $index")
+                    .headline
+                    img.result
+                    .detalle
+                        .firstline
+                            p.price
+                        p
+                    .additionals
+                        p
+            .results(ng-show="results && results.length")
+                .result(ng-repeat="result in results|limitTo:4 track by $index")
+                    .headline
+                    img.result(ng-src="{{result.thumbnail}}")
+                    .detalle
+                        .firstline
+                            p.price {{result.price}}
+                            img.shipping(ng-if="result.shipping", src="images/ic_shipping.png") 
+                        p {{result.title}}
+                    .additionals
+                        p {{result.location}}
+block scripts
+    script(src="scripts/models/result.js")

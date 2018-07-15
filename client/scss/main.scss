@@ -1,32 +1,168 @@
-$header-background-color: #FFE600;
-$background-color: #EEEEEE;
-$margin-item: 16px;
-$padding-item: 32px;
+$header-bgcolor: #FFE600;
+$body-bgcolor: #EEE;
+$general-lighttext: #999;
+$general-mediumtext: #666;
+$general-darktext: #333;
+$general-radius: 4px;
+$search-fontsize: 18px;
+$breadcrumb-fontsize: 14px;
+$breadcrumb-height: 21px;
+$low-margin: 16px;
+$high-margin: 32px;
+$result-imgmaxsize: 180px;
+$result-pricesize: 24px;
+$result-locationsize: 12px;
 
 body {
-    background-color:  $background-color;    
+    background-color: $body-bgcolor;    
     header.search {
         padding: 10px 0;
-        background-color: $header-background-color;
+        background-color: $header-bgcolor;
         form {
             display: inline-block;
             margin-left: 24px;
             width: calc(100% - 78px);
             input {
                 border: 0;
-                border-top-left-radius: 4px;
-                border-bottom-left-radius: 4px;
+                border-top-left-radius: $general-radius;
+                border-bottom-left-radius: $general-radius;
                 padding: 4.25px 14px;
-                font-size: 18px;
+                font-size: $search-fontsize;
                 width: calc(100% - 42px);
+                &:focus {
+                    outline: none;
+                }
             }
             button {
                 border: 0;
                 padding: 6px 12px;
-                border-top-right-radius: 4px;
-                border-bottom-right-radius: 4px;
-                background-color: $background-color !important;
+                border-top-right-radius: $general-radius;
+                border-bottom-right-radius: $general-radius;
+                background-color: $body-bgcolor !important;
             }
         }
     }
+    ol.breadcrumb {
+        background: transparent;
+        padding: 0;
+        margin: $low-margin 0;
+        font-size: $breadcrumb-fontsize;
+        color: $general-lighttext;
+        height: $breadcrumb-height;
+        li.breadcrumb-item {
+            &:not(:first-child) {
+                &::before {
+                    content: '>';
+                    transform: scaleX(0.5);
+                    padding-right: .75rem;
+                }
+                &:empty {
+                    &::before {
+                        content: '';
+                    }
+                }
+            }
+            &:last-child {
+                font-weight: bold;
+                &::before {
+                    font-weight: normal;
+                }
+            }
+            &:empty {
+                width: $breadcrumb-fontsize*10;
+                height: $breadcrumb-height;
+                background-color: $general-lighttext;
+                margin: 0 $general-radius 0 0;
+                border-radius: $general-radius;
+            }
+        }
+    }
+    div {
+        &.results {
+            background-color: #FFF;
+            border-radius: $general-radius;
+            margin-bottom: $low-margin;
+        }
+        &.result {
+            padding: $low-margin;
+            min-height: calc(#{$result-imgmaxsize} + #{$low-margin}*2);
+            img.result {
+                display: inline-block;
+                border-radius: $general-radius;
+                height: $result-imgmaxsize;
+                width: $result-imgmaxsize;
+                object-fit: cover;
+                background-color: $general-lighttext;
+            }
+            div {
+                &.detalle, &.additionals {
+                    display: inline-block;
+                    vertical-align: top;
+                    min-height: $result-imgmaxsize;
+                    margin-left: $low-margin;
+                }
+                &.detalle {
+                    width: calc(100% - #{$result-imgmaxsize}*1.75 - #{$low-margin}*2);
+                    p:empty {
+                        width: 100%;
+                        height: $search-fontsize;
+                        border-radius: $general-radius;
+                        background-color: $general-mediumtext;
+                    }
+                }
+                &.additionals {
+                    color: $general-lighttext;
+                    width: $result-imgmaxsize/1.5;
+                    p {
+                        margin-top: $low-margin;
+                        font-size: $result-locationsize;
+                        &:empty {
+                            width: inherit;
+                            height: $result-locationsize;
+                            border-radius: $general-radius;
+                            background-color: $general-lighttext;
+                        }
+                    }
+                }
+                &.firstline {
+                    width: 100%;
+                    margin-bottom: $high-margin;
+                    p, span {
+                        color: $general-darktext;
+                        margin: 0;
+                        font-size: $search-fontsize;
+                        &.price {
+                            display: inline-block;
+                            color: $general-darktext;
+                            font-size: $result-pricesize;
+                            &:empty {
+                                width: $result-pricesize*4;
+                                height: $result-pricesize;
+                                border-radius: $general-radius;
+                                background-color: $general-mediumtext;
+                            }
+                        }
+                    }
+                    img.shipping {
+                        display: inline-block;
+                        vertical-align: top;
+                        margin: $low-margin/2;
+                        border-radius: 50%;
+                    }
+                }
+                &.headline {
+                    border: thin solid $body-bgcolor;
+                    position: relative;
+                    top: $low-margin*-1;
+                    width: calc(100% - #{$general-radius}*2);
+                    left: $general-radius;
+                }
+            }
+            &:first-child {
+                div.headline {
+                    display: none;
+                }
+            }
+        }
+    }    
 }

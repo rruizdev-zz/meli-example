@@ -1,20 +1,25 @@
 doctype html  
 html(lang='es-ar')  
  head
-    title!= title
+    title!=title
+    base(href="/")
     link(rel="stylesheet", href="components/bootstrap/dist/css/bootstrap.min.css")
     link(rel="stylesheet", href="stylesheets/main.css")
- body
-    header.search
-        div.container
-            img(src="images/Logo_ML.png")
-            form(action="")
-                input(type="text", placeholder="Nunca dejes de buscar")
-                button 
-                    img(src="images/ic_Search.png")
-    block content
-    block scripts
     script(src="components/jquery/dist/jquery.min.js")
     script(src="components/popper.js/dist/umd/popper.min.js")
     script(src="components/bootstrap/dist/js/bootstrap.min.js")
     script(src="components/angular/angular.min.js")
+    script(src="components/angular-route/angular-route.min.js")
+    script(src="scripts/controllers/mainController.js")
+    script(src="scripts/controllers/resultsController.js")
+    block scripts
+    script(src="scripts/main.js")
+ body(ng-app='meli-example',ng-controller='mainController')
+    header.search
+        .container
+            img(src="images/Logo_ML.png")
+            form
+                input(type="text",placeholder="Nunca dejes de buscar",ng-model="querySearch",ng-enter="searchItems()")
+                button(ng-click="searchItems()")
+                    img(src="images/ic_Search.png")
+    block content
