@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(compression());
 app.use('/stylesheets', sass({
-    src: path.join(__dirname, 'scss'),
+    src: path.join(__dirname, 'sass'),
     dest: path.join(__dirname, 'public/stylesheets'),
     debug: true,
     outputStyle: 'compressed'
