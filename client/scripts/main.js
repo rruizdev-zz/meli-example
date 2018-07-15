@@ -7,6 +7,7 @@ ml.config(['$routeProvider', '$locationProvider', ($routeProvider, $locationProv
   $routeProvider
     .when('/', { templateUrl: '/', controller: 'mainController' })
     .when('/items', {templateUrl: '/items', contorller: 'resultsController' })
+    .when('/items/', {templateUrl: '/items', contorller: 'itemController' })
     .otherwise({ redirectTo: '/error' });
 
   $locationProvider.html5Mode({ enabled: true, requireBase: false }).hashPrefix('#');

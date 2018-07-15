@@ -7,7 +7,7 @@ const createError = require('http-errors');
 const sass = require('node-sass-middleware');
 
 const searchRouter = require('./routes/searchRoute');
-//const itemRouter = require('./routes/itemRoute');
+const itemRouter = require('./routes/itemRoute');
 
 const app = express();
 
@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', searchRouter);
 app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use('/scripts', express.static(path.join(__dirname, 'scripts')));
-//app.use('/items', itemRouter);
+app.use('/items', itemRouter);
 
 app.use((request, response, next) => {
     next(createError(404));

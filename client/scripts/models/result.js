@@ -1,10 +1,11 @@
 class result {
     constructor(item) {
-      this.thumbnail = item ? item.picture : undefined;
-      this.price = item ? '$' + item.price.amount : undefined;
-      this.title = item ? item.title : undefined;
-      this.location = item ? item.location: 'No ubicado';
-      this.shipping = item ? item.free_shipping : undefined;
+      this.id = item.id;
+      this.thumbnail = item.picture;
+      this.price = numeral(item.price.amount).format('$0,0[.]00')
+      this.title = item.title;
+      this.location = item.location;
+      this.shipping = item.free_shipping;
     }
 }
   

@@ -19,7 +19,7 @@ block content
                     .additionals
                         p
             .results(ng-show="results && results.length")
-                .result(ng-repeat="result in results|limitTo:4 track by $index")
+                .result(ng-repeat="result in results|limitTo:4 track by $index",ng-click="showItem(result.id)")
                     .headline
                     img.result(ng-src="{{result.thumbnail}}")
                     .detalle

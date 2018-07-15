@@ -6,6 +6,10 @@ function resultsController($scope, $controller) {
     vm.results = [];
     vm.categories = [];
 
+    vm.showItem = id => {
+      window.location.href = "/items/" + id;
+    }
+
     vm.getResults = () => {
       var data = new XMLHttpRequest();
       data.onreadystatechange = function() {
