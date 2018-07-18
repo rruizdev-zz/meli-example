@@ -3,7 +3,9 @@ $body-bgcolor: #EEE;
 $general-lighttext: #999;
 $general-mediumtext: #666;
 $general-darktext: #333;
+$general-buttoncolor: #3483FA;
 $general-radius: 4px;
+$general-size: 12px;
 $search-fontsize: 18px;
 $breadcrumb-fontsize: 14px;
 $breadcrumb-height: 21px;
@@ -12,15 +14,22 @@ $high-margin: 32px;
 $result-imgmaxsize: 180px;
 $result-pricesize: 24px;
 $result-locationsize: 12px;
+$detail-size: 680px;
+$header-buttonsize: 6px;
+$detail-pricesize: 46px;
+$detail-description-title: 28px;
 
 body {
-    background-color: $body-bgcolor;    
+    background-color: $body-bgcolor;
     header.search {
-        padding: 10px 0;
-        background-color: $header-bgcolor;
+        padding: $general-radius*2.5 0;
+        background-color: $header-bgcolor;   
+        img.logo {
+            cursor: pointer;
+        }
         form {
             display: inline-block;
-            margin-left: 24px;
+            margin-left: $general-size*2;
             width: calc(100% - 78px);
             input {
                 border: 0;
@@ -35,7 +44,7 @@ body {
             }
             button {
                 border: 0;
-                padding: 6px 12px;
+                padding: $header-buttonsize $header-buttonsize*2;
                 border-top-right-radius: $general-radius;
                 border-bottom-right-radius: $general-radius;
                 background-color: $body-bgcolor !important;
@@ -84,8 +93,12 @@ body {
             margin-bottom: $low-margin;
         }
         &.result {
+            cursor: pointer;
             padding: $low-margin;
             min-height: calc(#{$result-imgmaxsize} + #{$low-margin}*2);
+            &.empty {
+                cursor: default;
+            }
             img.result {
                 display: inline-block;
                 border-radius: $general-radius;
@@ -161,6 +174,65 @@ body {
             &:first-child {
                 div.headline {
                     display: none;
+                }
+            }
+        }
+        &.detail {
+            color: $general-darktext;
+            img {
+                width: $detail-size;
+                height: $detail-size;
+                object-fit: cover;
+                background-color: $general-lighttext;
+                display: inline-block;
+                border-top-left-radius: $general-radius;
+            }
+            div.main-data {
+                width: calc(100% - #{$detail-size} - #{$low-margin}*1.5);
+                display: inline-block;
+                vertical-align: top;
+                padding: $high-margin $low-margin*1.5;
+                p {
+                    margin: 0;
+                    margin-bottom: $low-margin;
+                    &.previous {
+                        font-size: $breadcrumb-fontsize;
+                    }
+                    &.price {
+                        font-size: $detail-pricesize;
+                        sup {
+                            top: -.6em;
+                            font-size: 0.5em;
+                        }
+                    }
+                }
+                h1 {
+                    font-size: $result-pricesize;
+                    font-weight: bold;
+                    margin: 0;
+                    margin-bottom: $high-margin;
+                }
+                a.btn.btn-primary {
+                    background-color: $general-buttoncolor;
+                    color: #FFF;
+                    font-size: $general-size*1.25;
+                    min-width: 220px;
+
+                }
+            }
+            div.description {
+                padding: $high-margin*1.5 $high-margin $high-margin;
+                h2 {
+                    margin-bottom: $high-margin;
+                    font-size: $detail-description-title;
+                }
+                p {
+                    margin: 0;
+                    color: $general-mediumtext;
+                    font-size: $low-margin;
+                    &.empty {
+                        background-color: $general-lighttext;
+                    }
                 }
             }
         }

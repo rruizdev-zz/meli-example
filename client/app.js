@@ -33,17 +33,10 @@ app.use((request, response, next) => {
     next(createError(404));
 });
 
-app.use((error, request, response, next) => {
-    response.locals.message = error.message;
-    response.locals.error = request.app.get('env') === 'development' ? error : {};
-  
-    response.status(error.status || 500);
-    response.send({
-      stat: error.status || 500,
-      env: request.app.get('env'),
-      msg: error.message
-    });
-  });
+app.use((error, request, response, next) => {  
+    //console.log(error.status || 500);
+    response.render('error');
+});
 
 app.set('view engine', 'pug');
 

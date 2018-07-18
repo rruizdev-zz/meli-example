@@ -14,12 +14,13 @@ html(lang='es-ar')
     script(src="components/numeral/min/numeral.min.js")
     script(src="scripts/controllers/mainController.js")
     script(src="scripts/controllers/resultsController.js")
+    script(src="scripts/controllers/detailController.js")
     block scripts
     script(src="scripts/main.js")
  body(ng-app='meli-example',ng-controller='mainController')
     header.search
         .container
-            img(src="images/Logo_ML.png")
+            img.logo(src="images/Logo_ML.png", ng-click="goHome()")
             form
                 input(type="text",placeholder="Nunca dejes de buscar",ng-model="querySearch",ng-enter="searchItems()")
                 button(ng-click="searchItems()")

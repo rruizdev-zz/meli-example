@@ -2,12 +2,13 @@ var ml = angular.module('meli-example', ['ngRoute']);
 
 ml.controller('mainController', mainController);
 ml.controller('resultsController', resultsController);
+ml.controller('detailController', detailController);
 
 ml.config(['$routeProvider', '$locationProvider', ($routeProvider, $locationProvider) => {
   $routeProvider
     .when('/', { templateUrl: '/', controller: 'mainController' })
-    .when('/items', {templateUrl: '/items', contorller: 'resultsController' })
-    .when('/items/', {templateUrl: '/items', contorller: 'itemController' })
+    .when('/items', {templateUrl: '/items', controller: 'resultsController' })
+    .when('/items/:id', {templateUrl: '/items/:id', controller: 'detailController' })
     .otherwise({ redirectTo: '/error' });
 
   $locationProvider.html5Mode({ enabled: true, requireBase: false }).hashPrefix('#');
