@@ -3,8 +3,8 @@ function resultsController($scope, $controller) {
 
     var vm = $scope;
     
-    vm.results = [];
-    vm.categories = [];
+    vm.results = undefined;
+    vm.categories = undefined;
 
     vm.showItem = id => {
       window.location.href = "/items/" + id;
@@ -16,6 +16,7 @@ function resultsController($scope, $controller) {
           if ((this.readyState === 4 && this.status === 200) && (this.responseText && this.responseText.length)) {
             var jsonResponse = JSON.parse(this.responseText);
 
+            vm.results = [];
             vm.results.length = 0;
             if (jsonResponse.items && jsonResponse.items.length) jsonResponse.items.forEach(currentResult => {
               vm.results.push(new result(currentResult));

@@ -1,7 +1,7 @@
 const config = {
-    endpoints: {
-        showItems: 'http://localhost:1810/api/items?q=%s',
-        showDetails: 'http://localhost:1810/api/items/%s'
+    endpoint: {
+        search: 'http://localhost:1810/api/items?q=%s',
+        item: 'http://localhost:1810/api/items/%s'
     }
 }
 

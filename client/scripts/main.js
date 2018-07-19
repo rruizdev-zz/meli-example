@@ -1,5 +1,16 @@
 var ml = angular.module('meli-example', ['ngRoute']);
 
+ml.factory('meliCommon', () => {
+    return {
+        normalize: (text) => {
+            return text.split(' ').join('-');
+        },  
+        denormalize: (text) => {
+            return text.split('-').join(' ')
+        }
+    }
+});
+
 ml.controller('mainController', mainController);
 ml.controller('resultsController', resultsController);
 ml.controller('detailController', detailController);

@@ -3,7 +3,7 @@ function detailController($scope, $controller, $location) {
 
     var vm = $scope;
     
-    vm.item = {};
+    vm.item = undefined;
 
     vm.buyItem = () => {
         alert("¡Aún no puedes comprar éste artículo!");
@@ -15,8 +15,10 @@ function detailController($scope, $controller, $location) {
             if ((this.readyState === 4 && this.status === 200) && (this.responseText && this.responseText.length)) {
                 var jsonResponse = JSON.parse(this.responseText);
                 vm.item = new detail(jsonResponse.item);
-                vm.$apply();
+            } else {
+                vm.item = {};
             }
+            vm.$apply();
         };
 
         data.open('GET', '/items/query/' + $location.path().split('/')[2], true);

@@ -6,8 +6,8 @@ const compression = require('compression');
 const createError = require('http-errors');
 const sass = require('node-sass-middleware');
 
-const searchRouter = require('./routes/searchRoute');
-const itemRouter = require('./routes/itemRoute');
+const routeSearch = require('./routes/search');
+const routeItem = require('./routes/item');
 
 const app = express();
 
@@ -24,18 +24,18 @@ app.use('/stylesheets', sass({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', searchRouter);
+app.use('/', routeSearch);
+app.use('/items', routeItem);
+
 app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use('/scripts', express.static(path.join(__dirname, 'scripts')));
-app.use('/items', itemRouter);
 
 app.use((request, response, next) => {
     next(createError(404));
 });
 
-app.use((error, request, response, next) => {  
-    //console.log(error.status || 500);
-    response.render('error');
+app.use((error, request, response, next) => {
+    response.render('error', { status: error.status || 500 });
 });
 
 app.set('view engine', 'pug');
