@@ -4,11 +4,9 @@ block content
         input(id='querySearch',type="hidden",value!=query)
         .container
             ol.breadcrumb(ng-hide="categories && categories.length")
-                li.breadcrumb-item(ng-repeat="ca in [].constructor(3) track by $index")
-
             ol.breadcrumb(ng-show="categories && categories.length")
                 li.breadcrumb-item(ng-repeat="category in categories track by $index") {{category}}
-            .results(ng-hide="results && results.length")
+            .results(ng-hide="results")
                 .result.empty(ng-repeat="no in [].constructor(4) track by $index")
                     .headline
                     img.result

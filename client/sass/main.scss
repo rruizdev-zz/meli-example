@@ -197,9 +197,21 @@ body {
                     margin-bottom: $low-margin;
                     &.previous {
                         font-size: $breadcrumb-fontsize;
+                        &:empty {
+                            border-radius: $general-radius;
+                            height: $breadcrumb-fontsize*1.5;
+                            width: 180px;
+                            background-color: $general-lighttext;
+                        }
                     }
                     &.price {
                         font-size: $detail-pricesize;
+                        &:empty {
+                            border-radius: $general-radius;
+                            height: $detail-pricesize;
+                            width: 148px;
+                            background-color: $general-lighttext;
+                        }
                         sup {
                             top: -.6em;
                             font-size: 0.5em;
@@ -211,6 +223,12 @@ body {
                     font-weight: bold;
                     margin: 0;
                     margin-bottom: $high-margin;
+                    &:empty {
+                        height: $result-pricesize*1.5;
+                        width: 100%;
+                        border-radius: $general-radius;
+                        background-color: $general-lighttext;
+                    }
                 }
                 a.btn.btn-primary {
                     background-color: $general-buttoncolor;
@@ -230,7 +248,10 @@ body {
                     margin: 0;
                     color: $general-mediumtext;
                     font-size: $low-margin;
-                    &.empty {
+                    &:empty {
+                        width: 100%;
+                        border-radius: $general-radius;
+                        height: $low-margin*1.5;
                         background-color: $general-lighttext;
                     }
                 }

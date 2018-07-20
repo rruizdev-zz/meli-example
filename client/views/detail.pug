@@ -3,19 +3,18 @@ block content
     div(ng-app='meli-example',ng-controller='detailController')
         .container
             ol.breadcrumb(ng-hide="categories && categories.length")
-                li.breadcrumb-item(ng-repeat="ca in [].constructor(3) track by $index")
-
             ol.breadcrumb(ng-show="categories && categories.length")
                 li.breadcrumb-item(ng-repeat="category in categories track by $index") {{category}}
             .results.detail
                 div
                     img(ng-src="{{item.thumbnail}}")
                     .main-data
-                        p.previuos {{item.condition}} - {{item.sold_quantity}} vendidos
+                        p.previous {{details}}
                         h1 {{item.title}}
-                        p.price 
-                            span {{item.price}}
-                            sup 00
+                        p.price(ng-hide="price.amount")
+                        p.price(ng-show="price.amount")
+                            span {{price.amount}}
+                            sup {{price.decimals}}
                         a.btn.btn-primary(ng-click="buyItem()") Comprar
                 .description 
                     h2 Descripción del producto

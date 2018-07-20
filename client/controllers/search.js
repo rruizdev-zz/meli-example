@@ -1,7 +1,10 @@
 const searchService = require('../services/search');
-const baseController = require('../controllers/base');
 
 exports.searchItems = (req, res) => {
-    var allItems = searchService.searchItems(req.params.word);
-    res.send(baseController.getResponse(allItems));
+    var searchItems = searchService.searchItems(req.params.word);
+    searchItems.then(response => {
+        res.send(response);
+    }, error => { 
+        res.send();
+    });
 }

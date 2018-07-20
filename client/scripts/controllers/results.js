@@ -13,16 +13,17 @@ function resultsController($scope, $controller) {
     vm.getResults = () => {
       var data = new XMLHttpRequest();
       data.onreadystatechange = function() {
+          vm.results = [];
+          vm.categories = [];
           if ((this.readyState === 4 && this.status === 200) && (this.responseText && this.responseText.length)) {
             var jsonResponse = JSON.parse(this.responseText);
 
-            vm.results = [];
             vm.results.length = 0;
             if (jsonResponse.items && jsonResponse.items.length) jsonResponse.items.forEach(currentResult => {
               vm.results.push(new result(currentResult));
             });
 
-            vm.categories = jsonResponse.categories && jsonResponse.categories.length ? jsonResponse.categories : [];
+            vm.categories = jsonResponse.categories;
             vm.$apply();
           }
       };
