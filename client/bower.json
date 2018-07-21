@@ -6,7 +6,6 @@
     "Roberto Ruiz <rruiz@est.frba.utn.edu.ar>"
   ],
   "license": "MIT",
-  "homepage": "",
   "private": true,
   "ignore": [
     "**/.*",
