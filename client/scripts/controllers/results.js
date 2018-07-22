@@ -7,6 +7,7 @@ function resultsController($scope, $controller) {
     vm.categories = undefined;
 
     vm.showItem = id => {
+      sessionStorage.setItem(["ic", id].join("-"), btoa(JSON.stringify(vm.categories)))
       window.location.href = "/items/" + id;
     }
 

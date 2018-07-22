@@ -5,7 +5,7 @@ function detailController($scope, $controller, $location) {
     
     vm.item = undefined;
     vm.details = "";
-    vm.categories = undefined;
+    vm.categories = [];
     vm.price = {
         amount: undefined,
         decimals: undefined
@@ -16,7 +16,9 @@ function detailController($scope, $controller, $location) {
     }
 
     vm.getItem = () => {
+        var itemId = $location.path().split('/')[2];        
         var data = new XMLHttpRequest();
+        
         data.onreadystatechange = function() {
             if ((this.readyState === 4 && this.status === 200) && (this.responseText && this.responseText.length)) {
                 var jsonResponse = JSON.parse(this.responseText);
@@ -24,14 +26,12 @@ function detailController($scope, $controller, $location) {
                 vm.details = [vm.item.condition, "-", vm.item.sold_quantity, "vendidos"].join(" ");
                 vm.price.amount = vm.item.price.split(",")[0]
                 vm.price.decimals = vm.item.price.split(",")[1];
-                vm.categories = jsonResponse.categories;
+                vm.categories = JSON.parse(atob(sessionStorage.getItem(["ic", itemId].join("-"))));
                 vm.$apply();
-            } else {
-                vm.item = {};
-            }
+            } 
         };
 
-        data.open('GET', '/items/query/' + $location.path().split('/')[2], true);
+        data.open('GET', '/items/query/' + itemId, true);
         data.send();
     }
 
