@@ -1,5 +1,3 @@
 ol.breadcrumb(ng-hide="categories && categories.length")
 ol.breadcrumb(ng-show="categories && categories.length")
-    li.breadcrumb-item 
-        a(href="",ng-click="goHome()") Principal
     li.breadcrumb-item(ng-repeat="category in categories track by $index") {{::category}}
