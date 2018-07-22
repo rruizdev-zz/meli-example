@@ -17,6 +17,9 @@ $result-location-fontsize: 12px;
 $detail-imageheight: 680px;
 $detail-price-fontsize: 46px;
 $detail-description-fontsize: 28px;
+$error-image-height: 184px;
+$error-title-fontsize: 36px;
+$error-text-fontsize: 18px;
 $user-white: #FFF;
 
 body {
@@ -261,6 +264,26 @@ body {
                         background-color: $general-text-light;
                     }
                 }
+            }
+        }
+        &.error {
+            background-color: $user-white;
+            margin-top: $general-margin-high;
+            border-radius: $general-radius;
+            text-align: center;
+            padding: $general-margin-high;
+            img {
+                height: $error-image-height;
+                width: $error-image-height;
+            }
+            h1 {
+                font-size: $error-title-fontsize;
+                margin-top: $general-margin-low;
+                color: $general-text-dark;
+            }
+            p {
+                font-size: $error-text-fontsize;
+                color: $general-text-light
             }
         }
     }    

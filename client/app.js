@@ -35,7 +35,7 @@ app.use((request, response, next) => {
 });
 
 app.use((error, request, response, next) => {
-    response.render('error', { status: error.status || 500 });
+    response.render('error', { status: (error.status || 500) });
 });
 
 app.set('view engine', 'pug');

@@ -11,13 +11,14 @@ ml.factory('meliCommon', () => {
 ml.controller('mainController', mainController);
 ml.controller('resultsController', resultsController);
 ml.controller('detailController', detailController);
+ml.controller('errorController', errorController);
 
 ml.config(['$routeProvider', '$locationProvider', ($routeProvider, $locationProvider) => {
   $routeProvider
     .when('/', { templateUrl: '/', controller: 'mainController' })
     .when('/items', {templateUrl: '/items', controller: 'resultsController' })
     .when('/items/:id', {templateUrl: '/items/:id', controller: 'detailController' })
-    .otherwise({ redirectTo: '/error' });
+    .otherwise({ redirectTo: '/error', controller: 'errorController' });
 
   $locationProvider.html5Mode({ enabled: true, requireBase: false }).hashPrefix('#');
 }]);

@@ -1,14 +1,13 @@
 extends layout.pug
-block content  
-    div(ng-app='meli-example')
+block content
+    div(ng-app="meli-example",ng-controller="errorController")
+        input(id='errorCode',type="hidden",value!=status)
         .container
-            .error
-                h1 500
-                h2 ¡Pssst! El servidor está durmiendo...
-                h4 Ajá, ¿y qué puedo hacer?
-                a ¡Despertalo!
-            .error
-                h1 404
-                h2 Acá no hay nada
-                h4 ¿Y cómo hago para encontrar algo?
-                p Hacé una búsqueda y comprobalo ;)
+            .error(ng-if="::codigo == 500")
+                img(src="/images/emoji-sleep.png")
+                h1 ¡Pssst! 
+                p Parece que el servidor duerme. Despertalo y volvé.
+            .error(ng-if="::codigo == 404")
+                img(src="/images/emoji-angry.png")
+                h1 ¡Acá no hay nadie!
+                p Probá buscando algo nuevo ;)
