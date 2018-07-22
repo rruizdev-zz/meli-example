@@ -25,7 +25,7 @@ function resultsController($scope, $controller) {
             });
 
             vm.categories = jsonResponse.categories;
-            vm.$apply();
+            vm.$evalAsync();
           }
       };
       data.open('GET', '/query/' + vm.querySearch, true);

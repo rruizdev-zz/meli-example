@@ -5,9 +5,9 @@ block content
         .container
             ol.breadcrumb(ng-hide="categories && categories.length")
             ol.breadcrumb(ng-show="categories && categories.length")
-                li.breadcrumb-item(ng-repeat="category in categories track by $index") {{category}}
+                li.breadcrumb-item(ng-repeat="category in categories track by $index") {{::category}}
             .results(ng-hide="results && results.length")
-                .result.empty(ng-repeat="no in [].constructor(4) track by $index")
+                .result.empty(ng-repeat="no in ::[].constructor(4) track by $index")
                     .headline
                     img.result
                     .detalle
@@ -19,13 +19,13 @@ block content
             .results(ng-show="results && results.length")
                 .result(ng-repeat="result in results|limitTo:4 track by $index",ng-click="showItem(result.id)")
                     .headline
-                    img.result(ng-src="{{result.thumbnail}}")
+                    img.result(ng-src="{{::result.thumbnail}}")
                     .detalle
                         .firstline
-                            p.price {{result.price}}
-                            img.shipping(ng-if="result.shipping", src="images/ic_shipping.png") 
-                        p {{result.title}}
+                            p.price {{::result.price|meliCurrency}}
+                            img.shipping(ng-if="::result.shipping", src="images/ic_shipping.png") 
+                        p {{::result.title}}
                     .additionals
-                        p {{result.location}}
+                        p {{::result.location}}
 block scripts
     script(src="scripts/models/result.js")

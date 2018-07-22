@@ -37,3 +37,26 @@ ml.directive('ngEnter', () => {
         });
     };
 });
+
+ml.filter('meliCurrency', () => {
+    return amount => "$ " + (amount ? amount.toString().replace(".", ","): "0");
+});
+
+ml.filter('meliInteger', () => {
+    return amount => {
+        var splittedAmount = amount ? amount.toString().split(".") : [];
+        return "$ " + (splittedAmount.length ? splittedAmount[0] : "0");       
+    };
+});
+
+ml.filter('meliDecimal', () => {
+    return amount => {
+        var splittedAmount = amount ? amount.toString().split(".") : [];
+        return splittedAmount.length > 1 ? splittedAmount[1] : "00";       
+    };
+});
+
+ml.filter('meliDetails', () => {
+    return item => item ? 
+        [(item.condition === "new" ? "Nuevo" : "Usado"), "-", item.sold_quantity, "vendidos"].join(" ") : undefined;
+});

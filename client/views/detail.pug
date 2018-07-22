@@ -4,21 +4,21 @@ block content
         .container
             ol.breadcrumb(ng-hide="categories && categories.length")
             ol.breadcrumb(ng-show="categories && categories.length")
-                li.breadcrumb-item(ng-repeat="category in categories track by $index") {{category}}
+                li.breadcrumb-item(ng-repeat="category in categories track by $index") {{::category}}
             .results.detail
                 div
-                    img(ng-src="{{item.thumbnail}}")
+                    img(ng-src="{{::item.thumbnail}}")
                     .main-data
-                        p.previous {{details}}
-                        h1 {{item.title}}
-                        p.price(ng-hide="price.amount")
-                        p.price(ng-show="price.amount")
-                            span {{price.amount}}
-                            sup {{price.decimals}}
+                        p.previous {{::item|meliDetails}}
+                        h1 {{::item.title}}
+                        p.price(ng-hide="::item.price")
+                        p.price(ng-show="::item.price")
+                            span {{item.price|meliInteger}}
+                            sup {{item.price|meliDecimal}}
                         a.btn.btn-primary(ng-click="buyItem()") Comprar
                 .description 
                     h2 Descripción del producto
-                    p {{item.description}}
+                    p {{::item.description}}
 block scripts
     script(src="scripts/models/result.js")
     script(src="scripts/models/detail.js")
