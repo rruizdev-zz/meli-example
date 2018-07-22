@@ -2,12 +2,9 @@ var ml = angular.module('meli-example', ['ngRoute']);
 
 ml.factory('meliCommon', () => {
     return {
-        normalize: (text) => {
-            return text.split(' ').join('-');
-        },  
-        denormalize: (text) => {
-            return text.split('-').join(' ')
-        }
+        normalize: text => text.split(' ').join('-'),  
+        denormalize: text => text.split('-').join(' '),
+        removeChars: text => decodeURI(text).replace("ñ", "n").replace("á", "a").replace("é", "e").replace("í", "i").replace("ó", "o").replace("ú", "u")
     }
 });
 

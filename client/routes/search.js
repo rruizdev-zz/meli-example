@@ -11,8 +11,8 @@ router.get('/', (req, res, next) => {
 
 router.get('/items', (req, res, next) => {
   res.render('results', { 
-    title: 'Resultados para ' + req.query.search + ' en Mercado Libre Argentina', 
-    query: req.query.search 
+    title: 'Resultados para ' + decodeURI(req.query.search) + ' en Mercado Libre Argentina', 
+    query: decodeURI(req.query.search) 
   });
 });
 

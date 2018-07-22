@@ -1,4 +1,4 @@
-function resultsController($scope, $controller) {
+function resultsController($scope, $controller, meliCommon) {
     $controller('mainController', {$scope: $scope});
 
     var vm = $scope;
@@ -28,7 +28,7 @@ function resultsController($scope, $controller) {
             vm.$evalAsync();
           }
       };
-      data.open('GET', '/query/' + vm.querySearch, true);
+      data.open('GET', '/query/' + meliCommon.removeChars(vm.querySearch), true);
       data.send();
     }
 
