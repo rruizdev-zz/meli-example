@@ -3,9 +3,7 @@ block content
     div(ng-app='meli-example',ng-controller='resultsController')
         input(id='querySearch',type="hidden",value!=query)
         .container
-            ol.breadcrumb(ng-hide="categories && categories.length")
-            ol.breadcrumb(ng-show="categories && categories.length")
-                li.breadcrumb-item(ng-repeat="category in categories track by $index") {{::category}}
+            include breadcrumb.pug
             .results(ng-hide="results && results.length")
                 .result.empty(ng-repeat="no in ::[].constructor(4) track by $index")
                     .headline

@@ -1,1 +1,14 @@
 extends layout.pug
+block content  
+    div(ng-app='meli-example')
+        .container
+            .error
+                h1 500
+                h2 ¡Pssst! El servidor está durmiendo...
+                h4 Ajá, ¿y qué puedo hacer?
+                a ¡Despertalo!
+            .error
+                h1 404
+                h2 Acá no hay nada
+                h4 ¿Y cómo hago para encontrar algo?
+                p Hacé una búsqueda y comprobalo ;)

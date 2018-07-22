@@ -2,9 +2,7 @@ extends layout.pug
 block content
     div(ng-app='meli-example',ng-controller='detailController')
         .container
-            ol.breadcrumb(ng-hide="categories && categories.length")
-            ol.breadcrumb(ng-show="categories && categories.length")
-                li.breadcrumb-item(ng-repeat="category in categories track by $index") {{::category}}
+            include breadcrumb.pug
             .results.detail
                 div
                     img(ng-src="{{::item.thumbnail}}")

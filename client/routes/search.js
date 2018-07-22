@@ -1,18 +1,23 @@
 const express = require('express');
+const util = require('util');
 const router = express.Router();
 
 const searchController = require('../controllers/search');
+const config = require('../config');
 
 router.get('/', (req, res, next) => {
   res.render('search', { 
-    title: 'Mercado Libre Argentina' 
+    title: config.title.home,
+    description: config.description.home
   });
 });
 
 router.get('/items', (req, res, next) => {
+  var queryDecoded = decodeURI(req.query.search);
   res.render('results', { 
-    title: 'Resultados para ' + decodeURI(req.query.search) + ' en Mercado Libre Argentina', 
-    query: decodeURI(req.query.search) 
+    title: util.format(config.title.results, queryDecoded), 
+    query: queryDecoded,
+    description: util.format(config.description.results, queryDecoded)
   });
 });
 

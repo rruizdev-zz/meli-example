@@ -19,6 +19,10 @@ function detailController($scope, $controller) {
                 var jsonResponse = JSON.parse(this.responseText);
                 vm.item = new detail(jsonResponse.item);
                 vm.categories = JSON.parse(atob(sessionStorage.getItem(["ic", itemId].join("-"))));
+
+                document.title = [vm.item.title, document.title].join(" en ");  
+                document.querySelector('meta[name="description"]').setAttribute("content", vm.item.description.split("\n").join(" ").replace('"', ''));
+
                 vm.$evalAsync();
             } 
         };
