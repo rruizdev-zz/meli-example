@@ -32,9 +32,18 @@ app.use('/stylesheets', sass({
 app.use('/', routeSearch);
 app.use('/items', routeItem);
 
+var walkSync = (dir, filelist) => {
+    var files = fs.readdirSync(dir), filelist = filelist || [];
+    files.forEach(file => {
+        if (fs.statSync(path.join(dir, file)).isDirectory()) filelist = walkSync(path.join(dir, file), filelist);
+        else filelist.push(path.join(dir, file));
+    });
+    return filelist;
+}
+
 var allCode = "";
-config.scripts.forEach(script => {
-    fs.readFile(path.join(__dirname, 'scripts', script), 'utf8', (err, data) => {
+walkSync(path.join(__dirname, 'scripts'), []).forEach(script => {
+    fs.readFileSync(script, 'utf8', (err, data) => {
         allCode += uglify.minify(data, { ie8: true, mangle: false }).code;
         fs.writeFileSync(path.join(__dirname, 'public/javascripts/meli.min.js'), allCode, 'utf8');
     });    
