@@ -3,11 +3,11 @@ function errorController($scope, $controller) {
 
     var vm = $scope;
     
-    vm.codigo = document.getElementById('errorCode') ? document.getElementById('errorCode').value : "";
+    vm.codigo = document.getElementById('errorCode') ? document.getElementById('errorCode').value : '';
 
-    vm.showError = () => {
+    vm.showError = function() {
       console.log(vm.codigo);
     };
 
     vm.showError();
-}
+};

@@ -4,10 +4,10 @@ block content
         input(id='errorCode',type="hidden",value!=status)
         .container
             .error(ng-if="::codigo == 500")
-                img(src="/images/emoji-sleep.png")
+                img(src="images/emoji-sleep.png")
                 h1 ¡Pssst! 
                 p Parece que el servidor duerme. Despertalo y volvé.
             .error(ng-if="::codigo == 404")
-                img(src="/images/emoji-angry.png")
+                img(src="images/emoji-angry.png")
                 h1 ¡Acá no hay nadie!
                 p Probá buscando algo nuevo ;)
