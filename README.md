@@ -52,15 +52,18 @@ A su vez, desde el lado cliente se establecieron endpoints adicionales, con el f
   - Lo corremos, pudiendo hacerlo de dos modos (ejecutar el que sea necesario):
     - Debug: `DEBUG=server:* npm start`
     - Productivo: `npm start`
+    
     Ahora podés probar con las URL anteriores que devuelve un JSON de acuerdo a lo requerido. Si la URL no es válida por alguna razón, devolverá un JSON que tendrá los siguientes campos:
       - `stat`: Código de error (p. ej. 404 o 500).
       - `msg`: Mensaje describiendo el error.
+      
 - Corremos el cliente:
   - Abrimos otro terminal, ya que en la anterior está corriendo el servicio y no debe parar.
   - Ingresamos al directorio del cliente: `cd client`
   - Instalamos las dependencias: 
     - Node Package Manager: `npm install`
     - Bower: `bower install`
+    
     Es necesario correr ambos comandos para que la aplicación funcione correctamente.
   - Lo corremos, y podemos hacerlo de dos modos como para el caso anterior (ejecutar el que sea necesario):
     - Debug: `DEBUG=client:* npm start`
