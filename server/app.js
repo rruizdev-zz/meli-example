@@ -5,8 +5,8 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const compression = require('compression');
 
-const apiRouter = require('./routes/apiRoute');
-const itemsRouter = require('./routes/itemsRoute');
+const apiRouter = require('./routes/api');
+const itemsRouter = require('./routes/items');
 
 const app = express();
 
@@ -31,7 +31,6 @@ app.use((error, request, response, next) => {
   response.status(error.status || 500);
   response.send({
     stat: error.status || 500,
-    env: request.app.get('env'),
     msg: error.message
   });
 });

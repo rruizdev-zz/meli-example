@@ -1,4 +1,4 @@
-const itemsService = require('../services/itemsService');
+const itemsService = require('../services/items');
 const singleItem = require('../models/singleItem');
 const globalResult = require('../models/globalResult');
 const priceItem = require('../models/priceItem');

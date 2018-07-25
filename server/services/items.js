@@ -1,4 +1,4 @@
-const baseService = require('./baseService');
+const baseService = require('./base');
 const config = require('../config');
 const util = require('util');
 

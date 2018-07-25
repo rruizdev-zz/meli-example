@@ -1,4 +1,4 @@
-const apiService = require('../services/apiService');
+const apiService = require('../services/api');
 const listItem = require('../models/listItem');
 const globalResult = require('../models/globalResult');
 const priceItem = require('../models/priceItem');
