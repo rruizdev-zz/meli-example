@@ -42,7 +42,6 @@ A su vez, desde el lado cliente se establecieron endpoints adicionales, con el f
 - Detalle: `localhost:1800/items/query/ID_ITEM`
 
 ## Descarga y configuración
-_Éstos pasos pueden fallar en Windows. Únicamente Linux/OSX._
 
 - Abrimos un terminal.
 - Clonamos el repositorio en un directorio a elección: `git clone https://github.com/robrui/meli-example.git`
