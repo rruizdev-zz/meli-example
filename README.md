@@ -1,9 +1,27 @@
-![meli-example](https://raw.githubusercontent.com/robrui/meli-example/master/client/images/Logo_ML%402x.png.png)
----
-Ésta es una aplicación de prueba, creada para buscar artículos y obtener detalles provenientes de una API externa. 
+# MyApp
 
-## Wiki
-Toda la información que necesitás, pasando por la descripción de su contenido, las cualidades de calidad con las que cumple y pasos para obtener y ejecutar localmente las soluciones (entre otros), los encontrarás entrando a la [Wiki](https://github.com/robrui/meli-example/wiki).
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.0.
 
-## Observaciones
-A fin de mantener la estabilidad de la aplicación, hay características que se omitieron o se realizaron de un modo alternativo. Algunas de las issues lo incluyen, bajo la etiqueta `design`.
+## Development server
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## Code scaffolding
+
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+## Build
+
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
