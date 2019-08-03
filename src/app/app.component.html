@@ -1,11 +1,10 @@
 <header class="search">
   <div class="container">
-    <img class="logo" src="../assets/images/Logo_ML.png" ng-click="goHome()" />
+    <img class="logo" src="../assets/images/Logo_ML.png" />
     <form>
-      <input type="text" placeholder="Nunca dejes de buscar" ng-model="querySearch" ng-model-options="{ 'updateOn': 'keyup' }" ng-enter="searchItems()" />
-      <button ng-click="searchItems()"><img src="../assets/images/ic_Search.png"/></button>
+      <input type="text" placeholder="Nunca dejes de buscar" />
+      <button><img src="../assets/images/ic_Search.png"/></button>
     </form>
   </div>
 </header>
-
 <router-outlet></router-outlet>
