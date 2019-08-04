@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
+import { ItemService } from 'src/app/services/item.service';
 
 @Component({
   selector: 'app-search',
@@ -9,7 +10,7 @@ import { Location } from '@angular/common';
 export class SearchComponent implements OnInit {
   public request: String;
 
-  constructor(private location: Location) { }
+  constructor(private location: Location, private itemService: ItemService) { }
 
   ngOnInit() {
   }
@@ -22,7 +23,7 @@ export class SearchComponent implements OnInit {
     event.preventDefault();
 
     if (this.request && this.request.length) {
-      console.log(this.request);
+      this.itemService.search(this.request);
     }
   }
 }
