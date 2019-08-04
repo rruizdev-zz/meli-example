@@ -21,6 +21,8 @@ export class SearchComponent implements OnInit {
   search(event: MouseEvent) {
     event.preventDefault();
 
-    console.log(this.request);
+    if (this.request && this.request.length) {
+      console.log(this.request);
+    }
   }
 }
