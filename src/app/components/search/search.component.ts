@@ -1,6 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Location } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { ItemService } from 'src/app/services/item.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -10,13 +10,13 @@ import { ItemService } from 'src/app/services/item.service';
 export class SearchComponent implements OnInit {
   public request: String;
 
-  constructor(private location: Location, private itemService: ItemService) { }
+  constructor(private router: Router, private itemService: ItemService) { }
 
   ngOnInit() {
   }
 
   backToHome() {
-    this.location.go("/");
+    this.router.navigate(['/']);
   }
 
   search(event: MouseEvent) {
@@ -24,6 +24,7 @@ export class SearchComponent implements OnInit {
 
     if (this.request && this.request.length) {
       this.itemService.search(this.request);
+      this.router.navigate(['/search/' + this.request]);
     }
   }
 }
