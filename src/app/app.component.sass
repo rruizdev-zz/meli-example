@@ -4,29 +4,3 @@ $header-background: #FFE600
 $search-fontsize: 18px
 $search-magnifier: 6px
 $general-radius: 4px
-
-header.search
-    padding: 10px 0
-    background-color: $header-background   
-    img.logo
-        cursor: pointer
-        height: $search-fontsize*2
-    form
-        display: inline-block
-        margin-left: 12px*2
-        width: calc(100% - 78px)
-        input
-            border: 0
-            border-top-left-radius: $general-radius
-            border-bottom-left-radius: $general-radius
-            padding: $search-fontsize/72*17 $search-fontsize/9*7
-            font-size: $search-fontsize
-            width: calc(100% - 42px)
-            &:focus
-                outline: none
-        button
-            border: 0
-            padding: $search-magnifier $search-magnifier*2
-            border-top-right-radius: $general-radius
-            border-bottom-right-radius: $general-radius
-            background-color: $body-background !important
