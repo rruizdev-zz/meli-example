@@ -24,7 +24,7 @@ export class SearchComponent implements OnInit {
 
     if (this.request && this.request.length) {
       this.itemService.search(this.request);
-      this.router.navigate(['/search/' + this.request]);
+      this.router.navigate(['/items'], { queryParams: { search: this.request } });
     }
   }
 }

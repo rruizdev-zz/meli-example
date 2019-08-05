@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ItemService } from 'src/app/services/item.service';
 
 @Component({
   selector: 'app-results',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./results.component.sass']
 })
 export class ResultsComponent implements OnInit {
+  results = [];
 
-  constructor() { }
+  constructor(private itemService: ItemService) { }
 
   ngOnInit() {
+    this.itemService.results$.subscribe(results => {
+      console.log(results);
+      this.results = results;
+    });
   }
-
 }

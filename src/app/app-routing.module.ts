@@ -4,7 +4,7 @@ import { ResultsComponent } from './components/results/results.component';
 
 
 const routes: Routes = [
-  { path: 'search/:query', component: ResultsComponent },
+  { path: 'items', component: ResultsComponent },
   { path: '**', redirectTo: '/' }
 ];
 
