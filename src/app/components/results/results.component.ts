@@ -13,7 +13,6 @@ export class ResultsComponent implements OnInit {
 
   ngOnInit() {
     this.itemService.results$.subscribe(results => {
-      console.log(results);
       this.results = results;
     });
   }

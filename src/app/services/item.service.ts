@@ -11,8 +11,7 @@ export class ItemService {
 
   constructor() { }
 
-  search(request: String) {
-    console.log(request);    
+  search(request: String) { 
     this.results.next([]);
   }
 }
