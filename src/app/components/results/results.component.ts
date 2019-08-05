@@ -8,12 +8,12 @@ import { ItemService } from 'src/app/services/item.service';
 })
 export class ResultsComponent implements OnInit {
   results = [];
+  categories = [];
 
   constructor(private itemService: ItemService) { }
 
   ngOnInit() {
-    this.itemService.results$.subscribe(results => {
-      this.results = results;
-    });
+    this.itemService.results$.subscribe(results => this.results = results);
+    this.itemService.categories$.subscribe(categories => this.categories = categories);
   }
 }
