@@ -68,11 +68,13 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "meli-example:build"
+            "browserTarget": "meli-example:build",
+            "port": 1810
           },
           "configurations": {
             "production": {
-              "browserTarget": "meli-example:build:production"
+              "browserTarget": "meli-example:build:production",
+              "port": 1810
             }
           }
         },
