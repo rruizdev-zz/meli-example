@@ -15,6 +15,9 @@ export class ItemService {
   constructor(private http: HttpClient) { }
 
   search(request: String) { 
+    this.results.next([]);
+    this.categories.next([]); 
+
     this.http.get("http://localhost:1811/api/Items?q=" + request)
       .subscribe((response: any) => {
         this.results.next(response.items);
