@@ -16,7 +16,7 @@
         </div>
     </div>
     <div class="results" *ngIf="results && results.length">
-        <div class="result" *ngFor="let result of results; trackBy:$index">
+        <div class="result" *ngFor="let result of results; trackBy:$index" (click)="showDetail(result)">
             <div class="headline"></div>
             <img class="result" src="{{ result.picture }}" />
             <div class="detalle">
