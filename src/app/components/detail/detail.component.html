@@ -3,9 +3,13 @@
         <div>
             <img [src]="detail.item.picture" alt="" />
             <div class="main-data">
-                <p class="previous">{{ detail.item.condition }} - {{ detail.item.sold_quantity }} vendidos </p>
+                <p class="previous" *ngIf="detail.item.condition === 'new'">Nuevo - {{ detail.item.sold_quantity }} vendidos </p>
+                <p class="previous" *ngIf="detail.item.condition !== 'new'">Usado - {{ detail.item.sold_quantity }} vendidos </p>
                 <h1>{{ detail.item.title }}</h1>
-                <p class="price">{{ detail.item.price.amount | currency }}</p>
+                <p class="price" *ngIf="detail.item.price">
+                    <span>{{ detail.item.price.amount | currency : '$' : 'symbol' : '1.0-0' }}</span>
+                    <sup>{{ detail.item.price.decimals }}</sup>
+                </p>
                 <a class="btn btn-primary">Comprar</a>
             </div>
         </div>
