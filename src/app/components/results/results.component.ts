@@ -19,6 +19,7 @@ export class ResultsComponent implements OnInit {
   }
 
   showDetail(result: any) {
-    this.router.navigate(['/detail']);
+    this.itemService.getDetail(result.id);
+    this.router.navigate(['/items/' + result.id]);
   }
 }

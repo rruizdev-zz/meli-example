@@ -1,20 +1,17 @@
 <div class="container">
     <div class="results detail">
         <div>
-            <img src="" alt="" />
+            <img [src]="detail.item.picture" alt="" />
             <div class="main-data">
-                <p class="previous"></p>
-                <h1></h1>
-                <p class="price">
-                    <span></span>
-                    <sup></sup>
-                </p>
+                <p class="previous">{{ detail.item.condition }} - {{ detail.item.sold_quantity }} vendidos </p>
+                <h1>{{ detail.item.title }}</h1>
+                <p class="price">{{ detail.item.price.amount | currency }}</p>
                 <a class="btn btn-primary">Comprar</a>
             </div>
         </div>
         <div class="description">
             <h2>Descripción del producto</h2>
-            <p></p>
+            <p>{{ detail.item.description }}</p>
         </div>
     </div>
 </div>
