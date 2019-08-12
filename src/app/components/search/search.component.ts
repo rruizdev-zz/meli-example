@@ -8,13 +8,13 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./search.component.sass']
 })
 export class SearchComponent implements OnInit {
-  public request: String;
+  public request: string;
 
   constructor(private router: Router, private route: ActivatedRoute, private itemService: ItemService) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
-      this.request = params['search'];
+      this.request = decodeURI(params['search']);
     });
   }
 
@@ -27,7 +27,7 @@ export class SearchComponent implements OnInit {
 
     if (this.request && this.request.length) {
       this.itemService.search(this.request);
-      this.router.navigate(['/items'], { queryParams: { search: this.request } });
+      this.router.navigate(['/items'], { queryParams: { search: encodeURI(this.request) } });
     }
   }
 }
