@@ -16,21 +16,21 @@ export class ItemService {
 
   constructor(private http: HttpClient) { }
 
-  search(request: String) { 
+  search(request: string) { 
     this.results.next([]);
     this.categories.next([]); 
 
-    this.http.get('http://localhost:1811/api/Items?q=' + request)
+    this.http.get('http://localhost:1811/api/Items?q=' + encodeURI(request))
       .subscribe((response: any) => {
         this.results.next(response.items);
         this.categories.next(response.categories);
       });
   }
 
-  getDetail(id: String) {
+  getDetail(id: string) {
     this.detail.next(undefined);
 
-    this.http.get('http://localhost:1811/api/Items/' + id)
+    this.http.get('http://localhost:1811/api/Items/' + encodeURI(id))
       .subscribe((response: any) => this.detail.next(response));
   }
 }
