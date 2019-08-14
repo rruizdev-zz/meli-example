@@ -20,4 +20,7 @@ export class DetailComponent implements OnInit {
     });
   }
 
+  buy() {
+    alert("Un momento, ¡ésta aplicación es de búsquedas!");
+  }
 }

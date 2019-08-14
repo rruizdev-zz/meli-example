@@ -1,4 +1,5 @@
 <div class="container">
+    <app-breadcrumb></app-breadcrumb>
     <div class="results detail">
         <div>
             <img [src]="detail.item.picture" alt="" />
@@ -7,10 +8,11 @@
                 <p class="previous" *ngIf="detail.item.condition !== 'new'">Usado - {{ detail.item.sold_quantity }} vendidos </p>
                 <h1>{{ detail.item.title }}</h1>
                 <p class="price" *ngIf="detail.item.price">
-                    <span>{{ detail.item.price.amount | currency : '$' : 'symbol' : '1.0-0' }}</span>
-                    <sup>{{ detail.item.price.decimals }}</sup>
+                    <span>{{ detail.item.price.amount | currency : '$' : symbol: '1.0-00' }}</span>
+                    <sup *ngIf="detail.item.price.decimals > 0">{{ detail.item.price.decimals }}</sup>
+                    <sup *ngIf="detail.item.price.decimals === 0">00</sup>
                 </p>
-                <a class="btn btn-primary">Comprar</a>
+                <a class="btn btn-primary" (click)="buy()">Comprar</a>
             </div>
         </div>
         <div class="description">

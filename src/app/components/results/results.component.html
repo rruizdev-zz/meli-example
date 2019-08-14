@@ -1,5 +1,5 @@
 <div class="container">
-    <!-- TODO: app-breadcrumb -->
+    <app-breadcrumb [categories]="categories"></app-breadcrumb>
     <div class="results" *ngIf="!results || !results.length">
         <div class="result empty" *ngFor="let no of [].constructor(4); trackBy:$index">
             <div class="headline"></div>
