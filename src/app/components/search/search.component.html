@@ -1,9 +1,0 @@
-<header class="search">
-    <div class="container">
-        <img class="logo" src="../assets/images/Logo_ML.png" (click)="backToHome()" />
-        <form (submit)="search($event)">
-            <input type="text" placeholder="Nunca dejes de buscar" [(ngModel)]="request" [ngModelOptions]="{standalone: true}" required />
-            <button (click)="search($event)"><img src="../assets/images/ic_Search.png"/></button>
-        </form>
-    </div>
-</header>
