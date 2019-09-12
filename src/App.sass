@@ -1,0 +1,44 @@
+$header-background: #FFE600
+$search-fontsize: 18px
+$search-magnifier: 6px
+$general-margin-low: 16px
+$general-margin-high: 32px
+$general-text-light: #999
+$general-text-medium: #666
+$general-text-dark: #333
+$general-radius: 4px
+$user-white: #FFF
+$general-button: #3483FA
+$body-background: #EEE
+
+body
+  margin: 0 !important
+  background-color: $body-background !important
+  font-family: Arial, Helvetica, sans-serif !important
+
+  header.Search
+    padding: 10px 0
+    margin-bottom: 10px
+    background-color: $header-background   
+    img.Logo
+      cursor: pointer
+      height: 36px
+    form
+      display: inline-block
+      margin-left: 24px
+      width: calc(100% - 78px)
+      input
+        border: 0
+        border-top-left-radius: $general-radius
+        border-bottom-left-radius: $general-radius
+        padding: 4.25px 14px
+        font-size: $search-fontsize
+        width: calc(100% - 42px)
+        &:focus
+          outline: none
+      button
+        border: 0
+        padding: $search-magnifier $search-magnifier*2
+        border-top-right-radius: $general-radius
+        border-bottom-right-radius: $general-radius
+        background-color: $body-background !important
